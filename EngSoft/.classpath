@@ -1,10 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
+	<classpathentry kind="src" path="crs"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-12">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/poi-4.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/poi-examples-4.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/poi-excelant-4.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/poi-ooxml-4.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/poi-ooxml-schemas-4.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/poi-scratchpad-4.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/lib/activation-1.1.1.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/beaab/Downloads/poi-bin-4.1.1-20191023/poi-4.1.1/lib/commons-codec-1.13.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
