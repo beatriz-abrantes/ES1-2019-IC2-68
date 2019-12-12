@@ -44,7 +44,7 @@ public class ES {
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
-
+ 
 	/**
 	 * Launch the application.
 	 */
