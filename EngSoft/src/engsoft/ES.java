@@ -51,7 +51,7 @@ public class ES {
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				try {
+				try {    
 					ES window = new ES();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
