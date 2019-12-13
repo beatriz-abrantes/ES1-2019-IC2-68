@@ -41,11 +41,14 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
 public class ES {
+	
 	private JFrame frame;
 	private JTextField textField;
 	private JTextField textField_1;
@@ -54,6 +57,48 @@ public class ES {
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private File excel;
+	private JComboBox comboBox;
+	private JComboBox comboBox_1;
+	private JComboBox comboBox_4;
+	private JComboBox comboBox_5;
+	
+	private List<Registo> MethodsWithError = new ArrayList<>();
+	public List<Registo> getMethodsWithError() {
+		return MethodsWithError;
+	}
+	
+	private List<Registo> todos;
+	public List<Registo> todos() {
+		return todos;
+	}
+	
+	
+	public List<Registo> getTodos() {
+		return todos;
+	}
+	List<Integer> erros = new ArrayList<>();
+	List<Integer> erros1 = new ArrayList<>();
+	
+	public List<Integer> getErros() {
+		return erros;
+	}
+
+	public List<Integer> getErros1() {
+		return erros1;
+	}
+
+	public void setMethodsWithError(List methodsWithError) {
+		MethodsWithError = methodsWithError;
+	}
+	private List<Registo> MethodsWithError1 = new ArrayList<>();
+	public List<Registo> getMethodsWithError1() {
+		return MethodsWithError1;
+	}
+
+	public void setMethodsWithError1(List methodsWithError1) {
+		MethodsWithError1 = methodsWithError1;
+	}
+
 	/**
 	 * Launch the application.
 	 */
@@ -83,6 +128,7 @@ public class ES {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		List<Registo> todos = new ArrayList<>();
 		frame = new JFrame();
 		frame.getContentPane().setForeground(new Color(255, 255, 255));
 		frame.setBackground(new Color(255, 255, 255));
@@ -145,6 +191,7 @@ public class ES {
 							XSSFCell exceliPlasma = excellinha.getCell(9);
 							XSSFCell excelPMD = excellinha.getCell(10);
 							XSSFCell excelis_feature_envy = excellinha.getCell(11);
+							
 
 //							System.out.println(excelMethodID);
 //							System.out.println(excelpackage);
@@ -194,6 +241,21 @@ public class ES {
 		frame.getContentPane().add(btnMostrarExcel, gbc_btnMostrarExcel);
 
 		JButton btnAvaliarPmd = new JButton("Avaliar PMD");
+		btnAvaliarPmd.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				AvQualidade av = new AvQualidade();
+				try {
+					av.PMD(excel);
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+//				av.is_long_method(model1);
+
+			}
+		});
 		btnAvaliarPmd.setBackground(Color.CYAN);
 		GridBagConstraints gbc_btnAvaliarPmd = new GridBagConstraints();
 		gbc_btnAvaliarPmd.insets = new Insets(0, 0, 5, 5);
@@ -213,8 +275,6 @@ public class ES {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-//				av.is_long_method(model1);
-
 			}
 		});
 		btnAvaliarIplasma.setBackground(Color.CYAN);
@@ -239,7 +299,7 @@ public class ES {
 		gbc_lblLoc.gridy = 6;
 		frame.getContentPane().add(lblLoc, gbc_lblLoc);
 
-		JComboBox comboBox_1 = new JComboBox();
+		comboBox_1 = new JComboBox();
 		comboBox_1.setModel(new DefaultComboBoxModel(new String[] {"<", ">", "<=", ">="}));
 		GridBagConstraints gbc_comboBox_1 = new GridBagConstraints();
 		gbc_comboBox_1.insets = new Insets(0, 0, 5, 5);
@@ -248,7 +308,7 @@ public class ES {
 		gbc_comboBox_1.gridy = 6;
 		frame.getContentPane().add(comboBox_1, gbc_comboBox_1);
 
-		textField = new JTextField();
+		textField = new JTextField("");
 		GridBagConstraints gbc_textField = new GridBagConstraints();
 		gbc_textField.insets = new Insets(0, 0, 5, 5);
 		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
@@ -257,6 +317,7 @@ public class ES {
 		frame.getContentPane().add(textField, gbc_textField);
 		textField.setColumns(10);
 
+		
 		JLabel lblAnd = new JLabel("AND");
 		GridBagConstraints gbc_lblAnd = new GridBagConstraints();
 		gbc_lblAnd.insets = new Insets(0, 0, 5, 5);
@@ -271,7 +332,7 @@ public class ES {
 		gbc_lblCyclo.gridy = 6;
 		frame.getContentPane().add(lblCyclo, gbc_lblCyclo);
 
-		JComboBox comboBox_5 = new JComboBox();
+		comboBox_5 = new JComboBox();
 		comboBox_5.setModel(new DefaultComboBoxModel(new String[] {"<", ">", "<=", ">="}));
 		GridBagConstraints gbc_comboBox_5 = new GridBagConstraints();
 		gbc_comboBox_5.insets = new Insets(0, 0, 5, 5);
@@ -280,7 +341,7 @@ public class ES {
 		gbc_comboBox_5.gridy = 6;
 		frame.getContentPane().add(comboBox_5, gbc_comboBox_5);
 
-		textField_1 = new JTextField();
+		textField_1 = new JTextField("");
 		GridBagConstraints gbc_textField_1 = new GridBagConstraints();
 		gbc_textField_1.insets = new Insets(0, 0, 5, 5);
 		gbc_textField_1.fill = GridBagConstraints.HORIZONTAL;
@@ -297,7 +358,7 @@ public class ES {
 		gbc_lblAtfd.gridy = 8;
 		frame.getContentPane().add(lblAtfd, gbc_lblAtfd);
 
-		JComboBox comboBox_4 = new JComboBox();
+		comboBox_4 = new JComboBox();
 		comboBox_4.setModel(new DefaultComboBoxModel(new String[] {"<", ">", "<=", ">="}));
 		GridBagConstraints gbc_comboBox_4 = new GridBagConstraints();
 		gbc_comboBox_4.insets = new Insets(0, 0, 5, 5);
@@ -330,7 +391,7 @@ public class ES {
 		gbc_lblLaa.gridy = 8;
 		frame.getContentPane().add(lblLaa, gbc_lblLaa);
 
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"<", ">", "<=", ">="}));
 		GridBagConstraints gbc_comboBox = new GridBagConstraints();
 		gbc_comboBox.insets = new Insets(0, 0, 5, 5);
@@ -349,6 +410,21 @@ public class ES {
 		textField_3.setColumns(10);
 				
 				JButton btnDetetarDefeitoDas = new JButton("Detetar defeito das novas regras");
+				btnDetetarDefeitoDas.addActionListener(new ActionListener() {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						RegrasNovas rn = new RegrasNovas();
+						System.out.println(textField.getText());
+						int a = Integer.parseInt(textField.getText());
+						int b = Integer.parseInt(textField_1.getText());
+						int d = Integer.parseInt(textField_2.getText());
+						double f = Double.parseDouble(textField_3.getText());
+						rn.LocAndCycloErrorDetector(excel,a,b,d,f);
+					
+					}
+				});
+				
 				btnDetetarDefeitoDas.setBackground(Color.CYAN);
 				GridBagConstraints gbc_btnDetetarDefeitoDas = new GridBagConstraints();
 				gbc_btnDetetarDefeitoDas.insets = new Insets(0, 0, 5, 5);
@@ -363,6 +439,22 @@ public class ES {
 				gbc_btnAvaliarNovasRegras.gridx = 6;
 				gbc_btnAvaliarNovasRegras.gridy = 10;
 				frame.getContentPane().add(btnAvaliarNovasRegras, gbc_btnAvaliarNovasRegras);
+				
+				btnAvaliarNovasRegras.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						AvQualidade avqual = new AvQualidade();
+						
+						
+						try {
+							avqual.AvRegras(excel);
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+					}
+					
+				});
 
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
@@ -392,6 +484,38 @@ public class ES {
 		model1 = (DefaultTableModel) table.getModel();
 		Object[] newIdentifiers = new Object[]{"MethodoID", "Package", "Class", "method", "LOC", "CYCLO", "ATFD", "LAA", "is_long_method", "iPlasma", "PMD", "is_feature_envy"};
 		model1.setColumnIdentifiers(newIdentifiers);
+	}
+
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+	public JComboBox getComboBox_1() {
+		return comboBox_1;
+	}
+
+	public JComboBox getComboBox_4() {
+		return comboBox_4;
+	}
+
+	public JComboBox getComboBox_5() {
+		return comboBox_5;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public JTextField getTextField_1() {
+		return textField_1;
+	}
+
+	public JTextField getTextField_2() {
+		return textField_2;
+	}
+
+	public JTextField getTextField_3() {
+		return textField_3;
 	}
 
 }
