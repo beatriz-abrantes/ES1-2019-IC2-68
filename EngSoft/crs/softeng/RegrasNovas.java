@@ -14,12 +14,25 @@ import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class RegrasNovas.
+ */
 public class RegrasNovas extends ES{
 
+	/**
+	 * Loc and cyclo error detector.
+	 *
+	 * @param excel the excel
+	 * @param a the a
+	 * @param b the b
+	 * @param d the d
+	 * @param f the f
+	 */
 	public void LocAndCycloErrorDetector( File excel, int a, int b, int d, double f) {
 
 		FileInputStream excelfis;
-		try {
+		try { 
 
 			excelfis = new FileInputStream(excel);
 
@@ -85,6 +98,12 @@ public class RegrasNovas extends ES{
 		}
 	}
 
+	/**
+	 * Operation getter.
+	 *
+	 * @param jcb the jcb
+	 * @return the string
+	 */
 	public String OperationGetter(JComboBox jcb) {
 		if(jcb.getSelectedItem().toString().equals("<"))
 			return ("<");
@@ -98,6 +117,15 @@ public class RegrasNovas extends ES{
 	}
 
 
+	/**
+	 * Endless combinations.
+	 *
+	 * @param a the a
+	 * @param b the b
+	 * @param c the c
+	 * @param excelLOC the excel LOC
+	 * @param excelCYCLO the excel CYCLO
+	 */
 	public void EndlessCombinations(int a, int b, int c, XSSFCell excelLOC, XSSFCell excelCYCLO) {
 
 
@@ -221,6 +249,16 @@ public class RegrasNovas extends ES{
 			}
 	}
 
+	/**
+	 * Endless combinations 1.
+	 *
+	 * @param d the d
+	 * @param f the f
+	 * @param c the c
+	 * @param excelATFD the excel ATFD
+	 * @param excelLAA the excel LAA
+	 * @param laa the laa
+	 */
 	//FEATURE ENVY 
 	public void EndlessCombinations1(int d, double f, int c, XSSFCell excelATFD, XSSFCell excelLAA, double laa) {
 

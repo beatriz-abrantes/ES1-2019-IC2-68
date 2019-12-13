@@ -47,60 +47,213 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ES.
+ */
 public class ES {
 	
+	/** The frame. */
 	private JFrame frame;
+	
+	/** The text field. */
 	private JTextField textField;
+	
+	/** The text field 1. */
 	private JTextField textField_1;
+	
+	/** The model 1. */
 	private DefaultTableModel model1;
+	
+	/** The table. */
 	private JTable table;
+	
+	/** The text field 2. */
 	private JTextField textField_2;
+	
+	/** The text field 3. */
 	private JTextField textField_3;
-	private File excel;
+	
+	/** The excel. */
+	private File excel; 
+	
+	/** The combo box. */
 	private JComboBox comboBox;
+	
+	/** The combo box 1. */
 	private JComboBox comboBox_1;
+	
+	/** The combo box 4. */
 	private JComboBox comboBox_4;
+	
+	/** The combo box 5. */
 	private JComboBox comboBox_5;
 	
-	private List<Registo> MethodsWithError = new ArrayList<>();
-	public List<Registo> getMethodsWithError() {
+	/** The excel method ID. */
+	private XSSFCell excelMethodID;
+	
+	/** The excelpackage. */
+	private XSSFCell excelpackage;
+	
+	/** The excel class excel. */
+	private XSSFCell excelClassExcel;
+	
+	/** The excelmethod. */
+	private XSSFCell excelmethod;
+	
+	/** The excel LOC. */
+	private XSSFCell excelLOC;
+	
+	/** The excel CYCLO. */
+	private XSSFCell excelCYCLO;
+	
+	/** The excel ATFD. */
+	private XSSFCell excelATFD;
+	
+	/** The excel LAA. */
+	private XSSFCell excelLAA;
+	
+	/** The excelis long method. */
+	private XSSFCell excelis_long_method;
+	
+	/** The exceli plasma. */
+	private XSSFCell exceliPlasma;
+	
+	/** The excel PMD. */
+	private XSSFCell excelPMD;
+	
+	/** The excelis feature envy. */
+	private XSSFCell excelis_feature_envy;
+	
+	/** The btn mostrar excel. */
+	private JButton btnMostrarExcel;
+	
+	/** The btn avaliar iplasma. */
+	private JButton btnAvaliarIplasma;
+	
+	/** The btn avaliar pmd. */
+	private JButton btnAvaliarPmd;
+	
+	/** The btn detetar defeito das. */
+	private JButton btnDetetarDefeitoDas; 
+	
+	/** The btn avaliar novas regras. */
+	private JButton btnAvaliarNovasRegras;
+	
+	/**
+	 * Gets the combo box.
+	 *
+	 * @return the combo box
+	 */
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+
+	/**
+	 * Gets the combo box 1.
+	 *
+	 * @return the combo box 1
+	 */
+	public JComboBox getComboBox_1() {
+		return comboBox_1;
+	}
+
+
+	/**
+	 * Gets the combo box 4.
+	 *
+	 * @return the combo box 4
+	 */
+	public JComboBox getComboBox_4() { 
+		return comboBox_4;
+	}
+
+
+	/**
+	 * Gets the combo box 5.
+	 *
+	 * @return the combo box 5
+	 */
+	public JComboBox getComboBox_5() {
+		return comboBox_5;
+	}
+	
+	/** The Methods with error. */
+	static private List<Registo> MethodsWithError = new ArrayList<>();
+	
+	/**
+	 * Gets the methods with error.
+	 *
+	 * @return the methods with error
+	 */
+	public static List<Registo> getMethodsWithError() {
 		return MethodsWithError;
 	}
 	
+	/** The Methods with error 1. */
+	private static List<Registo> MethodsWithError1 = new ArrayList<>();
+	
+	/**
+	 * Gets the methods with error 1.
+	 *
+	 * @return the methods with error 1
+	 */
+	public static List<Registo> getMethodsWithError1() {
+		return MethodsWithError1;
+	}
+	
+	/** The todos. */
 	private List<Registo> todos;
+	
+	/**
+	 * Todos.
+	 *
+	 * @return the list
+	 */
 	public List<Registo> todos() {
 		return todos;
 	}
 	
 	
+	/**
+	 * Gets the todos.
+	 *
+	 * @return the todos
+	 */
 	public List<Registo> getTodos() {
 		return todos;
 	}
-	List<Integer> erros = new ArrayList<>();
+	
+	/** The erros. */
+	List<Integer> erros =  new ArrayList<>();
+	
+	/** The erros 1. */
 	List<Integer> erros1 = new ArrayList<>();
 	
+	/**
+	 * Gets the erros.
+	 *
+	 * @return the erros
+	 */
 	public List<Integer> getErros() {
 		return erros;
 	}
 
+	/**
+	 * Gets the erros 1.
+	 *
+	 * @return the erros 1
+	 */
 	public List<Integer> getErros1() {
 		return erros1;
 	}
 
-	public void setMethodsWithError(List methodsWithError) {
-		MethodsWithError = methodsWithError;
-	}
-	private List<Registo> MethodsWithError1 = new ArrayList<>();
-	public List<Registo> getMethodsWithError1() {
-		return MethodsWithError1;
-	}
-
-	public void setMethodsWithError1(List methodsWithError1) {
-		MethodsWithError1 = methodsWithError1;
-	}
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -127,7 +280,7 @@ public class ES {
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	public void initialize() {
 		List<Registo> todos = new ArrayList<>();
 		frame = new JFrame();
 		frame.getContentPane().setForeground(new Color(255, 255, 255));
@@ -152,7 +305,7 @@ public class ES {
 		frame.getContentPane().add(lblAvaliaoDaQualidade, gbc_lblAvaliaoDaQualidade);
 
 
-		JButton btnMostrarExcel = new JButton("Mostrar Excel");
+		btnMostrarExcel = new JButton("Mostrar Excel");
 		btnMostrarExcel.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//File excel;
@@ -179,18 +332,18 @@ public class ES {
 						for (int linha = 0; linha < sheet.getLastRowNum(); linha++) {
 							XSSFRow excellinha = sheet.getRow(linha);
 
-							XSSFCell excelMethodID = excellinha.getCell(0);
-							XSSFCell excelpackage = excellinha.getCell(1);
-							XSSFCell excelClassExcel = excellinha.getCell(2);
-							XSSFCell excelmethod = excellinha.getCell(3);
-							XSSFCell excelLOC = excellinha.getCell(4);
-							XSSFCell excelCYCLO = excellinha.getCell(5);
-							XSSFCell excelATFD = excellinha.getCell(6);
-							XSSFCell excelLAA = excellinha.getCell(7);
-							XSSFCell excelis_long_method = excellinha.getCell(8);
-							XSSFCell exceliPlasma = excellinha.getCell(9);
-							XSSFCell excelPMD = excellinha.getCell(10);
-							XSSFCell excelis_feature_envy = excellinha.getCell(11);
+							excelMethodID = excellinha.getCell(0);
+							excelpackage = excellinha.getCell(1);
+							excelClassExcel = excellinha.getCell(2);
+							excelmethod = excellinha.getCell(3);
+							excelLOC = excellinha.getCell(4);
+							excelCYCLO = excellinha.getCell(5);
+							excelATFD = excellinha.getCell(6);
+							excelLAA = excellinha.getCell(7);
+							excelis_long_method = excellinha.getCell(8);
+							exceliPlasma = excellinha.getCell(9);
+							excelPMD = excellinha.getCell(10);
+							excelis_feature_envy = excellinha.getCell(11);
 							
 
 //							System.out.println(excelMethodID);
@@ -240,7 +393,7 @@ public class ES {
 		gbc_btnMostrarExcel.gridy = 2;
 		frame.getContentPane().add(btnMostrarExcel, gbc_btnMostrarExcel);
 
-		JButton btnAvaliarPmd = new JButton("Avaliar PMD");
+		btnAvaliarPmd = new JButton("Avaliar PMD");
 		btnAvaliarPmd.addActionListener(new ActionListener() {
 
 			@Override
@@ -263,7 +416,7 @@ public class ES {
 		gbc_btnAvaliarPmd.gridy = 2;
 		frame.getContentPane().add(btnAvaliarPmd, gbc_btnAvaliarPmd);
 
-		JButton btnAvaliarIplasma = new JButton("Avaliar iPlasma");
+		btnAvaliarIplasma = new JButton("Avaliar iPlasma");
 		btnAvaliarIplasma.addActionListener(new ActionListener() {
 
 			@Override
@@ -409,7 +562,7 @@ public class ES {
 		frame.getContentPane().add(textField_3, gbc_textField_3);
 		textField_3.setColumns(10);
 				
-				JButton btnDetetarDefeitoDas = new JButton("Detetar defeito das novas regras");
+				btnDetetarDefeitoDas = new JButton("Detetar defeito das novas regras");
 				btnDetetarDefeitoDas.addActionListener(new ActionListener() {
 
 					@Override
@@ -432,7 +585,7 @@ public class ES {
 				gbc_btnDetetarDefeitoDas.gridy = 10;
 				frame.getContentPane().add(btnDetetarDefeitoDas, gbc_btnDetetarDefeitoDas);
 		
-				JButton btnAvaliarNovasRegras = new JButton("Avaliar novas regras");
+				btnAvaliarNovasRegras = new JButton("Avaliar novas regras");
 				btnAvaliarNovasRegras.setBackground(Color.CYAN);
 				GridBagConstraints gbc_btnAvaliarNovasRegras = new GridBagConstraints();
 				gbc_btnAvaliarNovasRegras.insets = new Insets(0, 0, 5, 5);
@@ -480,42 +633,87 @@ public class ES {
 				}
 				));
 	}
+	
+	/**
+	 * Adds the table header.
+	 */
 	public void addTableHeader() {
 		model1 = (DefaultTableModel) table.getModel();
 		Object[] newIdentifiers = new Object[]{"MethodoID", "Package", "Class", "method", "LOC", "CYCLO", "ATFD", "LAA", "is_long_method", "iPlasma", "PMD", "is_feature_envy"};
 		model1.setColumnIdentifiers(newIdentifiers);
 	}
 
-	public JComboBox getComboBox() {
-		return comboBox;
-	}
 
-	public JComboBox getComboBox_1() {
-		return comboBox_1;
-	}
 
-	public JComboBox getComboBox_4() {
-		return comboBox_4;
-	}
 
-	public JComboBox getComboBox_5() {
-		return comboBox_5;
-	}
 
-	public JTextField getTextField() {
-		return textField;
-	}
-
-	public JTextField getTextField_1() {
-		return textField_1;
-	}
-
+	/**
+	 * Gets the text field 2.
+	 *
+	 * @return the text field 2
+	 */
 	public JTextField getTextField_2() {
 		return textField_2;
 	}
 
+
+	/**
+	 * Gets the text field 3.
+	 *
+	 * @return the text field 3
+	 */
 	public JTextField getTextField_3() {
 		return textField_3;
 	}
+
+
+	/**
+	 * Gets the text field.
+	 *
+	 * @return the text field
+	 */
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	/**
+	 * Clicarmostrarexcel.
+	 */
+	public void clicarmostrarexcel() {
+		btnMostrarExcel.doClick();
+	}
+	
+	/**
+	 * Clicarmostriplasma.
+	 */
+	public void clicarmostriplasma() {
+		btnAvaliarIplasma.doClick();
+	}
+
+	/**
+	 * Clicarmostrpmd.
+	 */
+	public void clicarmostrpmd() {
+		btnAvaliarPmd.doClick();
+	}
+	
+	/**
+	 * Clicarmostra.
+	 */
+	public void clicarmostra() {
+		btnDetetarDefeitoDas.doClick();
+	}
+	
+	/**
+	 * Clicarmostrarb.
+	 */
+	public void clicarmostrarb() {
+		btnAvaliarNovasRegras.doClick();
+	}
+//
+//	public void setMethodsWithError1(List<Registo> methodsWithError1) {
+//		MethodsWithError1 = methodsWithError1;
+//	}
+//	
 
 }
