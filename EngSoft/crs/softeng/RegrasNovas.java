@@ -42,7 +42,7 @@ public class RegrasNovas extends ES{
 
 			for (int linha = 1; linha < sheet.getLastRowNum(); linha++) {
 
-				XSSFRow excellinha = sheet.getRow(linha);
+				XSSFRow excellinha = sheet.getRow(linha); 
 
 				XSSFCell excelLOC = excellinha.getCell(4);
 				String LOC = excelLOC.toString();
@@ -58,7 +58,7 @@ public class RegrasNovas extends ES{
 
 				XSSFCell excelMethodNr = excellinha.getCell(0);
 				int c = (int) excelMethodNr.getNumericCellValue();
-				
+
 
 				String s = excellinha.getCell(7).getCellType().toString();
 
@@ -79,11 +79,11 @@ public class RegrasNovas extends ES{
 			}
 			for(Registo r : getMethodsWithError()) {
 				erros.add(r.getInteger());
-				System.out.println(r);
+				//System.out.println(r);
 			}
 			for(Registo r : getMethodsWithError1()) {
 				erros1.add(r.getInteger());
-				System.out.println(r);
+				//System.out.println(r);
 			}
 
 			JOptionPane.showMessageDialog(null, "Métodos com defeito (Long Method): " + getErros().toString() + "\n" + "Métodos com defeito (Feature Envy): " + getErros1().toString());
@@ -129,125 +129,138 @@ public class RegrasNovas extends ES{
 	public void EndlessCombinations(int a, int b, int c, XSSFCell excelLOC, XSSFCell excelCYCLO) {
 
 
-
 		// LONG METHOD 
 
-		if(OperationGetter(getComboBox()).equals("<") && OperationGetter(getComboBox_1()).equals("<"))
+		if(OperationGetter(getComboBox_1()).equals("<") && OperationGetter(getComboBox_5()).equals("<"))
 			if(!(excelLOC.getNumericCellValue() < a && excelCYCLO.getNumericCellValue() < b)){
 				getMethodsWithError().add(new Registo(c,true));
-//				todos.add(new Registo (c,false));
-//			}else {
-//				todos.add(new Registo (c,false));
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-				
-			
-		if(OperationGetter(getComboBox()).equals("<") && OperationGetter(getComboBox_1()).equals(">"))
+
+
+		if(OperationGetter(getComboBox_1()).equals("<") && OperationGetter(getComboBox_5()).equals(">"))
 			if(!(excelLOC.getNumericCellValue() < a && excelCYCLO.getNumericCellValue() > b)){
 				getMethodsWithError().add(new Registo(c,true));
-
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox()).equals("<") && OperationGetter(getComboBox_1()).equals("<="))
-			//getTodos().add(new Registo (c,true));
+
+		if(OperationGetter(getComboBox_1()).equals("<") && OperationGetter(getComboBox_5()).equals("<="))
 			if(!(excelLOC.getNumericCellValue() < a && excelCYCLO.getNumericCellValue() <= b)){
 				getMethodsWithError().add(new Registo(c,true));
-
-
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox()).equals("<") && OperationGetter(getComboBox_1()).equals(">="))
-			//getTodos().add(new Registo (c,true));
+
+
+
+		if(OperationGetter(getComboBox_1()).equals("<") && OperationGetter(getComboBox_5()).equals(">="))
 			if(!(excelLOC.getNumericCellValue() < a && excelCYCLO.getNumericCellValue() >= b)){
 				getMethodsWithError().add(new Registo(c,true));
-	
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-
-
-
 
 
 		//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-		if(OperationGetter(getComboBox()).equals(">") && OperationGetter(getComboBox_1()).equals("<"))
-			//getTodos().add(new Registo (c,true));
+		if(OperationGetter(getComboBox_1()).equals(">") && OperationGetter(getComboBox_5()).equals("<"))
 			if(!(excelLOC.getNumericCellValue() > a && excelCYCLO.getNumericCellValue() < b)){
 				getMethodsWithError().add(new Registo(c,true));
-
-			
-
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox()).equals(">") && OperationGetter(getComboBox_1()).equals(">"))
-			//getTodos().add(new Registo (c,false));
+
+		if(OperationGetter(getComboBox_1()).equals(">") && OperationGetter(getComboBox_5()).equals(">"))
 			if(!(excelLOC.getNumericCellValue() > a && excelCYCLO.getNumericCellValue() > b)){
 				getMethodsWithError().add(new Registo(c,true));
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
+			}
 
-		if(OperationGetter(getComboBox()).equals(">") && OperationGetter(getComboBox_1()).equals("<="))
-			//getTodos().add(new Registo (c,true));
+
+		if(OperationGetter(getComboBox_1()).equals(">") && OperationGetter(getComboBox_5()).equals("<="))
 			if(!(excelLOC.getNumericCellValue() > a && excelCYCLO.getNumericCellValue() <= b)){
 				getMethodsWithError().add(new Registo(c,true));
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-			
-		if(OperationGetter(getComboBox()).equals(">") && OperationGetter(getComboBox_1()).equals(">="))
-			//getTodos().add(new Registo (c,true));
+
+
+		if(OperationGetter(getComboBox_1()).equals(">") && OperationGetter(getComboBox_5()).equals(">="))
 			if(!(excelLOC.getNumericCellValue() > a && excelCYCLO.getNumericCellValue() >= b)){
 				getMethodsWithError().add(new Registo(c,true));
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-			
+
+
 
 
 		//<=<=<=<=<=<=<=<=<=<=
-		if(OperationGetter(getComboBox()).equals("<=") && OperationGetter(getComboBox_1()).equals("<"))
+		if(OperationGetter(getComboBox_1()).equals("<=") && OperationGetter(getComboBox_5()).equals("<"))
 			if(!(excelLOC.getNumericCellValue() <= a && excelCYCLO.getNumericCellValue() < b)){
 				getMethodsWithError().add(new Registo(c,true));
-
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox()).equals("<=") && OperationGetter(getComboBox_1()).equals(">"))
+
+		if(OperationGetter(getComboBox_1()).equals("<=") && OperationGetter(getComboBox_5()).equals(">"))
 			if(!(excelLOC.getNumericCellValue() <= a && excelCYCLO.getNumericCellValue() > b)){
 				getMethodsWithError().add(new Registo(c,true));
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox()).equals("<=") && OperationGetter(getComboBox_1()).equals("<="))
+
+		if(OperationGetter(getComboBox_1()).equals("<=") && OperationGetter(getComboBox_5()).equals("<="))
 			if(!(excelLOC.getNumericCellValue() <= a && excelCYCLO.getNumericCellValue() <= b)){
 				getMethodsWithError().add(new Registo(c,true));
-				
-
-
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox()).equals("<=") && OperationGetter(getComboBox_1()).equals(">="))
+
+
+
+		if(OperationGetter(getComboBox_1()).equals("<=") && OperationGetter(getComboBox_5()).equals(">="))
 			if(!(excelLOC.getNumericCellValue() <= a && excelCYCLO.getNumericCellValue() >= b)){
 				getMethodsWithError().add(new Registo(c,true));
-				
-
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-
-
-
 
 
 		//>=>=>=>=>=>=>=>=>=>=>=>=>=>
-		if(OperationGetter(getComboBox()).equals(">=") && OperationGetter(getComboBox_1()).equals("<"))
+		if(OperationGetter(getComboBox_1()).equals(">=") && OperationGetter(getComboBox_5()).equals("<"))
 			if(!(excelLOC.getNumericCellValue() >= a && excelCYCLO.getNumericCellValue() < b)){
 				getMethodsWithError().add(new Registo(c,true));
-				
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox()).equals(">=") && OperationGetter(getComboBox_1()).equals(">"))
+
+		if(OperationGetter(getComboBox_1()).equals(">=") && OperationGetter(getComboBox_5()).equals(">"))
 			if(!(excelLOC.getNumericCellValue() >= a && excelCYCLO.getNumericCellValue() > b)){
 				getMethodsWithError().add(new Registo(c,true));
-
-			
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
 
-		if(OperationGetter(getComboBox()).equals(">=") && OperationGetter(getComboBox_1()).equals("<="))
+
+		if(OperationGetter(getComboBox_1()).equals(">=") && OperationGetter(getComboBox_5()).equals("<="))
 			if(!(excelLOC.getNumericCellValue() >= a && excelCYCLO.getNumericCellValue() <= b)){
-
 				getMethodsWithError().add(new Registo(c,true));
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
+			}
 
-				
-			}
-		if(OperationGetter(getComboBox()).equals(">=") && OperationGetter(getComboBox_1()).equals(">="))
+		if(OperationGetter(getComboBox_1()).equals(">=") && OperationGetter(getComboBox_5()).equals(">="))
 			if(!(excelLOC.getNumericCellValue() >= a && excelCYCLO.getNumericCellValue() >= b)){
-				if(getMethodsWithError().contains(c))
-					getMethodsWithError().add(new Registo(c,true));
-				
+				getMethodsWithError().add(new Registo(c,true));
+			}else {
+				getTodos_ilm().add(new Registo (c,false));
 			}
-			}
+
 	}
+
 
 	/**
 	 * Endless combinations 1.
@@ -264,111 +277,112 @@ public class RegrasNovas extends ES{
 
 
 
-		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox_5()).equals("<"))
+		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox()).equals("<"))
 			if(!(excelATFD.getNumericCellValue() < d && laa < f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
-
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox_5()).equals(">"))
+
+		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox()).equals(">"))
 			if(!(excelATFD.getNumericCellValue() < d && laa > f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
-
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox_5()).equals("<="))
+		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox()).equals("<="))
 			if(!(excelATFD.getNumericCellValue() < d && laa <= f)){
 				getMethodsWithError1().add(new Registo(c,true));
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 
-				
 			}
-		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox_5()).equals(">="))
+		if(OperationGetter(getComboBox_4()).equals("<") && OperationGetter(getComboBox()).equals(">="))
 			if(!(excelATFD.getNumericCellValue() < d && laa >= f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-
-
-
-
-
+		
 		//>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox_5()).equals("<"))
+		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox()).equals("<"))
 			if(!(excelATFD.getNumericCellValue() < d && laa < f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox_5()).equals(">"))
+		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox()).equals(">"))
 			if(!(excelATFD.getNumericCellValue() < d && laa > f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox_5()).equals("<="))
+		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox()).equals("<="))
 			if(!(excelATFD.getNumericCellValue() < d && laa <= f)){
 				getMethodsWithError1().add(new Registo(c,true));
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 
-				
 			}
-		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox_5()).equals(">="))
+		if(OperationGetter(getComboBox_4()).equals(">") && OperationGetter(getComboBox()).equals(">="))
 			if(!(excelATFD.getNumericCellValue() < d && laa >= f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-
-
-
-
-
 
 		//<=<=<=<=<=<=<=<=<=<=
-		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox_5()).equals("<"))
+		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox()).equals("<"))
 			if(!(excelATFD.getNumericCellValue() < d && laa < f)){
 				getMethodsWithError1().add(new Registo(c,true));
-
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox_5()).equals(">"))
+		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox()).equals(">"))
 			if(!(excelATFD.getNumericCellValue() < d && laa > f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox_5()).equals("<="))
+		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox()).equals("<="))
 			if(!(excelATFD.getNumericCellValue() < d && laa <= f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
 
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox_5()).equals(">="))
+		if(OperationGetter(getComboBox_4()).equals("<=") && OperationGetter(getComboBox()).equals(">="))
 			if(!(excelATFD.getNumericCellValue() < d && laa >= f)){
 				getMethodsWithError1().add(new Registo(c,true));
-
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 
 			}
-
-
-
-
 
 		//>=>=>=>=>=>=>=>=>=>=>=>=>=>
-		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox_5()).equals("<"))
+		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox()).equals("<"))
 			if(!(excelATFD.getNumericCellValue() < d && laa < f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox_5()).equals(">"))
+		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox()).equals(">"))
 			if(!(excelATFD.getNumericCellValue() < d && laa > f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox_5()).equals("<="))
+		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox()).equals("<="))
 			if(!(excelATFD.getNumericCellValue() < d && laa <= f)){
-
 				getMethodsWithError1().add(new Registo(c,true));
-
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
-		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox_5()).equals(">="))
+		if(OperationGetter(getComboBox_4()).equals(">=") && OperationGetter(getComboBox()).equals(">="))
 			if(!(excelATFD.getNumericCellValue() < d && laa >= f)){
 				getMethodsWithError1().add(new Registo(c,true));
-				
+			}else {
+				getTodos_fe().add(new Registo (c,false));
 			}
 
 	}

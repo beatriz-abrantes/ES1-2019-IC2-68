@@ -28,80 +28,77 @@ public class AvQualidade {
 
 	/** The dci1. */
 	private int DCI1;
-	
+
 	/** The dii1. */
 	private int DII1;
-	
+
 	/** The adci1. */
 	private int ADCI1;
-	
+
 	/** The adii1. */
 	private int ADII1;
 
 	/** The dci2. */
 	private int DCI2;
-	
+
 	/** The dii2. */
 	private int DII2;
-	
+
 	/** The adci2. */
 	private int ADCI2;
-	
+
 	/** The adii2. */
 	private int ADII2;
 
 	/** The dci. */
 	private int DCI;
-	
+
 	/** The dii. */
 	private int DII;
-	
+
 	/** The adci. */
 	private int ADCI;
-	
+
 	/** The adii. */
 	private int ADII;
 
 
 	/** The dci3. */
 	private int DCI3;
-	
+
 	/** The dii3. */
 	private int DII3;
-	
+
 	/** The adci3. */
 	private int ADCI3;
-	
+
 	/** The adii3. */
 	private int ADII3;
 
 	/** The is long method. */
 	private XSSFCell is_long_method;
-	
+
 	/** The excelfis. */
 	private FileInputStream excelfis = null; 
-	
+
 	/** The excelbis. */
 	private BufferedInputStream excelbis = null; 
-	
+
 	/** The excel J panel import. */
 	private XSSFWorkbook excelJPanelImport = null;
-	
+
 	/** The janelai plasma. */
 	private JFrame janelaiPlasma; 
-	
+
 	/** The todos. */
 	private List<Registo> todos;
-	
+
 	/** The mwe. */
 	private List<Registo> MWE;
 
-	/**
-	 * Instantiates a new av qualidade.
-	 */
-	public AvQualidade() {
 
-		
+
+	public AvQualidade() {
 
 		DCI1 = 0;
 		DII1 = 0;
@@ -122,6 +119,8 @@ public class AvQualidade {
 		DII3 = 0;
 		ADCI3 = 0;
 		ADII3 = 0;
+
+
 	} 
 
 	/**
@@ -214,7 +213,7 @@ public class AvQualidade {
 		System.out.println("ADII:"+ADII2);
 
 	}
-	
+
 	/**
 	 * Av regras.
 	 *
@@ -228,83 +227,85 @@ public class AvQualidade {
 		excelJPanelImport = new XSSFWorkbook(excelbis);
 		XSSFSheet sheet = excelJPanelImport.getSheetAt(0);
 
-		for (int linha = 0; linha < sheet.getLastRowNum(); linha++) {
+		for (int linha = 1; linha < sheet.getLastRowNum(); linha++) {
 
-			//System.out.println(todos);
 			XSSFRow excellinha = sheet.getRow(linha);
 			XSSFCell excelcell_longmeth = excellinha.getCell(8);
 			String s= excelcell_longmeth.toString();
-			
-//			
-//			System.out.println(getMethodsWithError());
-//			System.out.println(getErros());
-			
+
 			for(Registo r : ES.getMethodsWithError()) {
+				if (r.getInteger() == (linha)) {
+					//System.out.println("AQUI");
 
-				System.out.println("AQUI");
+					if (s.equals("TRUE")) {
+						//System.out.println("qui ta");
+						DCI++;
+					}
 
-
-
-				if (r.isBool()==true && s.equals("TRUE")) {
-					System.out.println("qui ta");
-					DCI++;
+					if (s.equals("FALSE")) {
+						//System.out.println("qui tamos");
+						DII++;
+					}
 				}
+			}
+			for(Registo r1 : ES.getTodos_ilm()) {
+				if (r1.getInteger() == (linha)) {
+					//System.out.println("AQUI1");
 
-				if (r.isBool()==true && s.equals("FALSE")) {
-					System.out.println("qui tamos");
-					DII++;
-				}
-
-				if (r.isBool()==false && s.equals("TRUE")) {
-					System.out.println("qui tamos nos");
-					ADCI++;
-				}
-				if (r.isBool()==false && s.equals("FALSE")) {
-					System.out.println("qui tamos nos todos");
-					ADII++;
+					if (s.equals("TRUE")) {
+						//System.out.println("qui tamos nos");
+						ADCI++;
+					}
+					if (s.equals("FALSE")) {
+						//System.out.println("qui tamos nos todos");
+						ADII++;
+					}
 				}
 			}
 
 			for(Registo reg : ES.getMethodsWithError1()) {
- 
-
-
-				if (reg.isBool() == s.equals("TRUE")) {
-					System.out.println("qui ta");
-					DCI3++;
+				if (reg.getInteger() == (linha)) {
+					//System.out.println("AQUI2");
+					if (s.equals("TRUE")) {
+						//System.out.println("qui ta 2");
+					
+						DCI3++;
+					}
+					if (s.equals("FALSE")) {
+						//System.out.println("qui tamos 2");
+						
+						DII3++;
+					}
 				}
-
-				if (reg.isBool()==true && s.equals("FALSE")) {
-					System.out.println("qui tamos");
-					DII3++;
+			}
+			for(Registo reg1 : ES.getTodos_fe()) {
+				if (reg1.getInteger() == (linha)) { 
+					//System.out.println("AQUI3");
+					if (s.equals("TRUE")) {
+						//System.out.println("qui tamos nos 2");
+						ADCI3++;
+					}
+					if (s.equals("FALSE")) {
+						//System.out.println("qui tamos nos todos 2");
+						ADII3++;
+					}
 				}
-
-				if (reg.isBool()==false && s.equals("TRUE")) {
-					System.out.println("qui tamos nos");
-					ADCI3++;
-				}
-				if (!(reg.isBool()) == s.equals("FALSE")) {
-					System.out.println("qui tamos nos todos");
-					ADII3++;
-				}
-
- 
 			}
 
 		}
-		JOptionPane.showMessageDialog(null, "DCI: " + DCI + " "+ DCI3 + "\n" +  "DII: " + DII  + " "+ DII3 +"\n" + "ADCI: " + ADCI + " " + DCI3 +"\n" + "ADII: " + ADII);
-		
+		JOptionPane.showMessageDialog(null, "DCI: " + DCI + " - Long Method "+ DCI3 + " - Feature Envy"+ "\n" +  "DII: " + DII  + " - Long Method "+ DII3+" - Feature Envy" +"\n" + "ADCI: " + ADCI + " - Long Method " + DCI3 + " - Feature Envy "+"\n" + "ADII: " + ADII + " - Long Method "+ ADII3 + " - Feature Envy");
+
 		System.out.println("DCI: "+DCI);
 		System.out.println("DII: "+DII);
 		System.out.println("ADCI: "+ADCI);
-		System.out.println("ADII :"+ADII);
+		System.out.println("ADII: "+ADII);
 		System.out.println("DCI: "+DCI3);
 		System.out.println("DII: "+DII3);
 		System.out.println("ADCI: "+ADCI3);
-		System.out.println("ADII :"+ADII3);
+		System.out.println("ADII : "+ADII3);
 
 	}
-	
+
 	/**
 	 * The main method.
 	 *
@@ -728,7 +729,7 @@ public class AvQualidade {
 		MWE = mWE;
 	}
 
-	
+
 
 
 }

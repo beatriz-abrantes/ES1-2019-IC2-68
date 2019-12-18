@@ -204,39 +204,31 @@ public class ES {
 	}
 	
 	/** The todos. */
-	private List<Registo> todos;
+	static private List<Registo> todos_ilm = new ArrayList<Registo>();
 	
-	/**
-	 * Todos.
-	 *
-	 * @return the list
-	 */
-	public List<Registo> todos() {
-		return todos;
+	static private List<Registo> todos_fe = new ArrayList<Registo>();
+	
+	public static List<Registo> getTodos_ilm() {
+		return todos_ilm;
 	}
-	
-	
-	/**
-	 * Gets the todos.
-	 *
-	 * @return the todos
-	 */
-	public List<Registo> getTodos() {
-		return todos;
+
+
+	public static List<Registo> getTodos_fe() {
+		return todos_fe;
 	}
-	
+
 	/** The erros. */
-	List<Integer> erros =  new ArrayList<>();
+	public static List<Integer> erros =  new ArrayList<>();
 	
 	/** The erros 1. */
-	List<Integer> erros1 = new ArrayList<>();
+	public static List<Integer> erros1 = new ArrayList<>();
 	
 	/**
 	 * Gets the erros.
 	 *
 	 * @return the erros
 	 */
-	public List<Integer> getErros() {
+	public static List<Integer> getErros() {
 		return erros;
 	}
 
@@ -245,7 +237,7 @@ public class ES {
 	 *
 	 * @return the erros 1
 	 */
-	public List<Integer> getErros1() {
+	public static List<Integer> getErros1() {
 		return erros1;
 	}
 
@@ -281,7 +273,7 @@ public class ES {
 	 * Initialize the contents of the frame.
 	 */
 	public void initialize() {
-		List<Registo> todos = new ArrayList<>();
+		List<Registo> todos = new ArrayList<>(); 
 		frame = new JFrame();
 		frame.getContentPane().setForeground(new Color(255, 255, 255));
 		frame.setBackground(new Color(255, 255, 255));
@@ -568,7 +560,7 @@ public class ES {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						RegrasNovas rn = new RegrasNovas();
-						System.out.println(textField.getText());
+//						System.out.println(textField.getText());
 						int a = Integer.parseInt(textField.getText());
 						int b = Integer.parseInt(textField_1.getText());
 						int d = Integer.parseInt(textField_2.getText());

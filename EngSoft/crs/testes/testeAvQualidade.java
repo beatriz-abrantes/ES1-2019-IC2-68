@@ -31,11 +31,11 @@ public class testeAvQualidade {
 
 
 
-	@Test
-	public void testGetTodos() {
-		//		ArrayList<Registo> a = new ArrayList<Registo>();
-		assertEquals(av.getTodos(), a);
-	}
+//	@Test
+//	public void testGetTodos() {
+//		//		ArrayList<Registo> a = new ArrayList<Registo>();
+//		assertEquals(av.getTodos(), a);
+//	}
 
 	@Test
 	public void testMain() {
@@ -255,30 +255,14 @@ public class testeAvQualidade {
 		//		assert(av.getExcelfis(), )
 	}
 
-	@Test
-	public void testSetExcelfis() {
-		fail("Not yet implemented");
-	}
 
-	@Test
-	public void testGetExcelbis() {
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSetExcelbis() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testGetExcelJPanelImport() {
 		assertEquals(av.getExcelJPanelImport(), exp);
 	}
 
-	@Test
-	public void testSetExcelJPanelImport() {
-		//		av.getExcelJPanelImport(exp);
-	}
+
 
 	@Test
 	public void testGetJanelaiPlasma() {
@@ -306,10 +290,6 @@ public class testeAvQualidade {
 		av.setMWE(b);
 	}
 
-	@Test
-	public void testIPlasma() {
-		fail("Not yet implemented");
-	}
 
 	@Test
 	public void testPMD() throws IOException {
@@ -318,15 +298,12 @@ public class testeAvQualidade {
 		File excel = null;
 		String s = "TRUE";
 		String w = "TRUE";		
-		av.PMD(excel);
+		//av.PMD(excel);
 		//		assertEquals(,);
 		//
 
 	}
 
-	@Test
-	public void testAvRegras() {
-		fail("Not yet implemented");
-	}
+
 
 }
